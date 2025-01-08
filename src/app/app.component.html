@@ -1,7 +1,6 @@
-<div
-  *ngFor="let prod of products; let isEven = even;"
-  [ngClass]="{'even-style':isEven}"
->
-    <stn-product [product]="prod" (priceChange)="onPriceChange($event)"/>
-</div>
-
+<span> Heute ist {{heute | date:"fullDate" | uppercase}} </span>
+@for(prod of products | slice:0:3; track prod.id; let isEven = $even;){
+    <div [ngClass]="{'even-style':isEven}">
+        <stn-product [product]="prod" (priceChange)="onPriceChange($event)"/>
+    </div>
+}

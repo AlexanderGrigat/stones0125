@@ -8,6 +8,7 @@ import { Product } from './product/product';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  heute = new Date();
   title = 'stones';
   products = [
     {
