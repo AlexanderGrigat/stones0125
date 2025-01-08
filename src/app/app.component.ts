@@ -15,4 +15,9 @@ export class AppComponent {
     this.productParent.price = price;
     alert('Der Preis hat sich geändert: '+ price)
   }
+
+  changePrice(price: number){
+    this.productParent.price = price;
+    this.onPriceChange(this.productParent.price);
+  }
 }
