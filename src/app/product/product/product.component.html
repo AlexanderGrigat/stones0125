@@ -12,8 +12,11 @@
         <li>Gewicht: {{product.weight}}</li>
     </ul>
     <ng-content></ng-content>
-    <input type="number" #price>
-    <button (click)="changePrice(price.valueAsNumber)">Preis verändern</button>
-    <button (click)="togglePrice()">Preis Einblenden/Ausblenden</button>
-    <button (click)="increasePrice()">Zeig den Preis</button>
+    <button mat-raised-button (click)="togglePrice()">Preis ein-/ausblenden</button>
+    <button mat-raised-button (click)="increasePrice()">Preis erhöhen</button>
+    <br/>
+    <mat-form-field>
+        <input matInput type="number" #price>
+    </mat-form-field>
+    <button mat-raised-button (click)="changePrice(price.valueAsNumber)"> Preis ändern</button> <br/>
 </div>
