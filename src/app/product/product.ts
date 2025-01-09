@@ -5,6 +5,5 @@ export class Product {
         public price: number,
         public weight: number,
     ){
-        
     }
 }

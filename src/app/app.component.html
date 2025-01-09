@@ -3,7 +3,9 @@
   </mat-toolbar> 
 
 <span> Heute ist {{heute | date:"fullDate" | uppercase}} </span>
-@for(prod of products | slice:0:3; track prod.id; let isEven = $even;){
+<stn-product-form (saveProduct)="onSaveProduct($event)"></stn-product-form>
+
+@for(prod of products; track prod.id; let isEven = $even;){
     <mat-card [ngClass]="{'even-style':isEven}">
         <stn-product [product]="prod" (priceChange)="onPriceChange($event)"/>
     </mat-card>
