@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { ProductModule } from './product/product.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { MatCardModule } from '@angular/material/card';
     AppRoutingModule,
     ProductModule,
     MatToolbarModule, 
-    MatCardModule,
   ],
   providers: [
     provideAnimationsAsync()

@@ -6,7 +6,7 @@ import { By } from '@angular/platform-browser';
 import { Product } from '../product';
 import { UtilsModule } from '../../utils/utils.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormField, MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ProductComponent', () => {

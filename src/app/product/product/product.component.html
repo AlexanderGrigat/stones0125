@@ -1,7 +1,7 @@
 <div  class="border" [ngStyle]="styleConfig"
     [ngClass]="{'border-green': product.price < 50}">
     <ul>
-        <li>ID: {{product.id+1}}</li>
+        <li>ID: {{product.id}}</li>
         <li id="name">Name: {{product.name}}</li>
         @if(showPrice){
             <li> Preis: {{ product.price | currency: '€' }}</li>

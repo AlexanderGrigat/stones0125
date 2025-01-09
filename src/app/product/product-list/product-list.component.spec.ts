@@ -1,30 +1,34 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ProductFormComponent } from './product-form.component';
+import { ProductListComponent } from './product-list.component';
+import { ProductComponent } from '../product/product.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UtilsModule } from '../../utils/utils.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { provideRouter } from '@angular/router';
+import { provideRouter, RouterModule } from '@angular/router';
+import { ProductRoutingModule } from '../product-routing.module';
 
-describe('ProductFormComponent', () => {
-  let component: ProductFormComponent;
-  let fixture: ComponentFixture<ProductFormComponent>;
+describe('ProductListComponent', () => {
+  let component: ProductListComponent;
+  let fixture: ComponentFixture<ProductListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductFormComponent],
-      imports: [
+      declarations: [ProductListComponent, ProductComponent], 
+      imports:[
         ReactiveFormsModule,
+        UtilsModule,
         MatFormFieldModule,
         MatInputModule,
         NoopAnimationsModule,
+        RouterModule,
       ],
-      providers:[provideRouter([])]
+      providers:[provideRouter([]),]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProductFormComponent);
+    fixture = TestBed.createComponent(ProductListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
