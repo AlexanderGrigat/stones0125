@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('ProductFormComponent', () => {
   let component: ProductFormComponent;
@@ -20,7 +21,10 @@ describe('ProductFormComponent', () => {
         MatInputModule,
         NoopAnimationsModule,
       ],
-      providers:[provideRouter([])]
+      providers:[
+        provideRouter([]),
+        provideHttpClient(),
+      ]
     })
     .compileComponents();
 
