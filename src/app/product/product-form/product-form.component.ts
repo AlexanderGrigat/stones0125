@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Product } from '../product';
 import { CustomValidators } from '../../utils/validators/custom-validators';
 import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'stn-product-form',
@@ -11,20 +12,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './product-form.component.css'
 })
 export class ProductFormComponent {
-  @Output() saveProduct = new EventEmitter<Product>();
-  id = -1;
-
   // productForm = new FormGroup({
-    // name: new FormControl('', [Validators.required, CustomValidators.alphaNum]),
-    // price: new FormControl(0, [Validators.required, CustomValidators.positiv]),
-    // weight: new FormControl(0, [Validators.required]),
+  // name: new FormControl('', [Validators.required, CustomValidators.alphaNum]),
+  // price: new FormControl(0, [Validators.required, CustomValidators.positiv]),
+  // weight: new FormControl(0, [Validators.required]),
   // })
-
+    
+  id = -1;
   private readonly fb = inject(FormBuilder);
-  private readonly route = inject(ActivatedRoute);
+  private readonly productService = inject(ProductService);
 
   constructor(){
-    this.route.paramMap.subscribe(paramMap =>  {
+    inject(ActivatedRoute).paramMap.subscribe(paramMap =>  {
       const id = paramMap.get('id');
       if (id){
         this.id = +id
@@ -47,19 +46,18 @@ export class ProductFormComponent {
         formValue.price,
         formValue.weight
       );
-      this.saveProduct.emit(product);
+      this.productService.addProduct(product);
       this.productForm.reset();
     }
   }
 
-  hasSave(){
+  hasSaved(){
     const formValue = this.productForm.value;
 
     if(!formValue.name && !formValue.price && !formValue.weight){
-      return true
-    }
-    else{
-      return confirm('Du hast ungespeicherte Daten, willst du wirklich weg?')
+      return true;
+    } else {
+      return confirm('Du hast ungespeicherte Daten, willst du wirklich weg?');
     }
   }
 }

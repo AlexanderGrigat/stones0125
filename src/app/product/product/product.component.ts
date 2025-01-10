@@ -29,8 +29,8 @@ export class ProductComponent {
 
   togglePrice(){
     this.showPrice = !this.showPrice;
-    console.log('test')
-    console.log('Produkt:',this.product)
-    console.table(this.product)
+    console.log('test');
+    console.log('Produkt:',this.product);
+    console.table(this.product);
   }
 }

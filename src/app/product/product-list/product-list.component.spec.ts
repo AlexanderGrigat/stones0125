@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter, RouterModule } from '@angular/router';
 import { ProductRoutingModule } from '../product-routing.module';
+import { MockProductService, ProductService } from '../product.service';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -24,7 +25,7 @@ describe('ProductListComponent', () => {
         NoopAnimationsModule,
         RouterModule,
       ],
-      providers:[provideRouter([]),]
+      providers:[{provide: ProductService, useClass: MockProductService},provideRouter([])]
     })
     .compileComponents();
 
@@ -35,5 +36,9 @@ describe('ProductListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should correctly read product list', () => {
+    expect(component.products[0].id).toBe(-1);
   });
 });
