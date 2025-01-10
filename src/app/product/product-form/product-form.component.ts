@@ -4,6 +4,7 @@ import { Product } from '../product';
 import { CustomValidators } from '../../utils/validators/custom-validators';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'stn-product-form',
@@ -19,10 +20,22 @@ export class ProductFormComponent {
   // })
     
   id = -1;
+  nameReversed = '';
+  nameLength = 0;
+
   private readonly fb = inject(FormBuilder);
   private readonly productService = inject(ProductService);
 
+
   constructor(){
+    this.productForm.controls.name.valueChanges.pipe(map (n => 
+      n?.toString().split('').reverse().join(''))
+    ).subscribe(value => this.nameReversed = value ?? '');
+
+    this.productForm.controls.name.valueChanges.subscribe((value) => {
+      this.nameLength = value ? value.length : 0;
+    });
+
     inject(ActivatedRoute).paramMap.subscribe(paramMap =>  {
       const id = paramMap.get('id');
       if (id){
