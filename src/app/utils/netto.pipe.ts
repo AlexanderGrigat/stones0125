@@ -2,7 +2,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'netto',
-  standalone: false
 })
 export class NettoPipe implements PipeTransform {
 

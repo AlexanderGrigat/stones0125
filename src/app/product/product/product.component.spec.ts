@@ -4,10 +4,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductComponent } from './product.component';
 import { By } from '@angular/platform-browser';
 import { Product } from '../product';
-import { UtilsModule } from '../../utils/utils.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NettoPipe } from '../../utils/netto.pipe';
 
 describe('ProductComponent', () => {
   let component: ProductComponent;
@@ -15,8 +15,7 @@ describe('ProductComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductComponent],
-      imports: [UtilsModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, NoopAnimationsModule]
+      imports: [ProductComponent,NettoPipe, ReactiveFormsModule, MatInputModule, MatFormFieldModule, NoopAnimationsModule]
     })
     .compileComponents();
 

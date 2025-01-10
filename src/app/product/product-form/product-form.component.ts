@@ -1,16 +1,24 @@
 import { Component, Output, EventEmitter, inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Product } from '../product';
 import { CustomValidators } from '../../utils/validators/custom-validators';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
 import { map } from 'rxjs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'stn-product-form',
-  standalone: false,
   templateUrl: './product-form.component.html',
-  styleUrl: './product-form.component.css'
+  styleUrl: './product-form.component.css',
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule
+  ]
 })
 export class ProductFormComponent {
   // productForm = new FormGroup({

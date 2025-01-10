@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { ProductModule } from './product/product.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 describe('AppComponent', () => {
@@ -10,9 +9,6 @@ describe('AppComponent', () => {
       imports: [
         RouterModule.forRoot([]),
         MatToolbarModule,
-        ProductModule,
-      ],
-      declarations: [
         AppComponent,
       ],
     }).compileComponents();

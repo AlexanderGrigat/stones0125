@@ -2,12 +2,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductListComponent } from './product-list.component';
 import { ProductComponent } from '../product/product.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UtilsModule } from '../../utils/utils.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter, RouterModule } from '@angular/router';
 import { MockProductService, ProductService } from '../product.service';
+import { NettoPipe } from '../../utils/netto.pipe';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -15,10 +15,12 @@ describe('ProductListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductListComponent, ProductComponent], 
+      declarations: [], 
       imports:[
+        ProductListComponent,
+        ProductComponent,
         ReactiveFormsModule,
-        UtilsModule,
+        NettoPipe,
         MatFormFieldModule,
         MatInputModule,
         NoopAnimationsModule,
